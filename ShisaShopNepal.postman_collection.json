@@ -1,0 +1,715 @@
+{
+	"info": {
+		"_postman_id": "b304354a-f229-48b3-ba1b-faf7716537d5",
+		"name": "ShisaShopNepal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38464272"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"name\": \"Alice\",\n \"email\": \"alice@example.com\",\n  \"password\": \"secret123\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"email\": \"alice@example.com\",\n \"password\": \"secret123\" }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Post Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Elfbar BC5000 Blue Razz Ice",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "elfbar-bc5000-blue-razz-ice",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "2500",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Blue Razz disposable vape with 5000 puffs",
+									"type": "text"
+								},
+								{
+									"key": "brand",
+									"value": "691af89f6be6ea928a201a31",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "691aff916be6ea928a201a4b",
+									"type": "text"
+								},
+								{
+									"key": "nicotine_level",
+									"value": "50mg",
+									"type": "text"
+								},
+								{
+									"key": "puff_count",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "battery_capacity",
+									"value": "6600",
+									"type": "text"
+								},
+								{
+									"key": "liquid_capacity",
+									"value": "13ml",
+									"type": "text"
+								},
+								{
+									"key": "coil_type",
+									"value": "Mesh Coil",
+									"type": "text"
+								},
+								{
+									"key": "flavors",
+									"value": "691affbe6be6ea928a201a4d",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/home/bimal/Desktop/512px-Elf_Bar_logo.webp"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Elfbar 6000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is straberry in flavour",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1800",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/home/bimal/Downloads/Almado Pictures/Almado Pictures/555A6547.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/products/:id",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "691af0c349cdac1e1ca7dc9b"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Brand",
+			"item": [
+				{
+					"name": "Get Brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/brands",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Elfbar",
+									"type": "text"
+								},
+								{
+									"key": "slug",
+									"value": "elfbar",
+									"type": "text"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/home/bimal/Desktop/512px-Elf_Bar_logo.webp"
+								},
+								{
+									"key": "description",
+									"value": "sadfsadf fsdfs",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/brands",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Okbar\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/brands/691af89f6be6ea928a201a31",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"brands",
+								"691af89f6be6ea928a201a31"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Elbsar",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Brand",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"Okbar\"}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/brands/691af89f6be6ea928a201a31",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"brands",
+								"691af89f6be6ea928a201a31"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Elbsar",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Insert Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Disposable Vapes\",\n  \"slug\": \"disposable-vapes\",\n  \"description\": \"All disposable vape products\",\n  \"parent\": \"691af99c6be6ea928a201a36\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/categories",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Elbsar",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"description\": \"Updated description\",\n  \"parent\": \"691af99c6be6ea928a201a36\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/categories/691afbbc6be6ea928a201a38",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"691afbbc6be6ea928a201a38"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Disposable Vapes\",\n  \"slug\": \"disposable-vapes\",\n  \"description\": \"All disposable vape products\",\n  \"parent\": 691af99c6be6ea928a201a36,\n}\n"
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/categories",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Elbsar",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categories/691afbbc6be6ea928a201a38",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categories",
+								"691afbbc6be6ea928a201a38"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flavors",
+			"item": [
+				{
+					"name": "Get Flavor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/flavors",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"flavors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Flavor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Blue Razz Ice\",\n  \"slug\": \"blue-razz-ice\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/flavors",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"flavors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Flavors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTFhZWU0NTQ5Y2RhYzFlMWNhN2RjOTQiLCJpYXQiOjE3NjMzNzMyMTYsImV4cCI6MTc2Mzk3ODAxNn0.aS4-L4o3Wzqt6iOB0OO3hfpjhZrgcR_5Kp9C5nh0Xlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Blue Razz Ice (New)\",\n  \"slug\": \"blue-razz-ice-new\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/flavors/691afd046be6ea928a201a41",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"flavors",
+								"691afd046be6ea928a201a41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Flavor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/flavors/691afd046be6ea928a201a41",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"flavors",
+								"691afd046be6ea928a201a41"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
