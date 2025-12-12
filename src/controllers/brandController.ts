@@ -23,9 +23,12 @@ export const createBrand = async (req: Request, res: Response) => {
   }
 };
 
-export const getBrands = async (_req: Request, res: Response) => {
+export const getBrands = async (req: Request, res: Response) => {
   try {
-    const brands = await Brand.find().sort({ name: 1 });
+    const search = typeof req.query.search === "string" ? req.query.search.trim() : "";
+    const filter = search ? { name: { $regex: new RegExp(search, "i") } } : {};
+
+    const brands = await Brand.find(filter).sort({ name: 1 });
     res.json(brands);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch brands", error });

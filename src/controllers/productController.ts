@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import { Product } from "../models/Product";
 import { AuthenticatedRequest } from "../middleware/auth";
 import { slugify } from "../utils/slug";
+import { Brand } from "../models/Brand";
+import { Category } from "../models/Category";
 
 const normalizeArray = (value: unknown): string[] => {
   if (Array.isArray(value)) return value.map(String);
@@ -64,9 +66,33 @@ export const createProduct = async (req: AuthenticatedRequest, res: Response) =>
   }
 };
 
-export const getProducts = async (_req: Request, res: Response) => {
+export const getProducts = async (req: Request, res: Response) => {
   try {
-    const products = await Product.find()
+    const search = typeof req.query.search === "string" ? req.query.search.trim() : "";
+    const filter: Record<string, unknown> = {};
+
+    if (search) {
+      const searchRegex = new RegExp(search, "i");
+      const [matchingBrands, matchingCategories] = await Promise.all([
+        Brand.find({ name: searchRegex }).select("_id"),
+        Category.find({ name: searchRegex }).select("_id")
+      ]);
+
+      const brandIds = matchingBrands.map((brand) => brand._id);
+      const categoryIds = matchingCategories.map((category) => category._id);
+      const orClauses: Record<string, unknown>[] = [{ name: searchRegex }];
+
+      if (brandIds.length) {
+        orClauses.push({ brand: { $in: brandIds } });
+      }
+      if (categoryIds.length) {
+        orClauses.push({ category: { $in: categoryIds } });
+      }
+
+      filter.$or = orClauses;
+    }
+
+    const products = await Product.find(filter)
       .sort({ createdAt: -1 })
       .populate("brand", "name slug")
       .populate("category", "name slug")
